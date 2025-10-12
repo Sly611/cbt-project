@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
-const API_BASE_URL = "http://localhost:8000/api"; // your Django API
+const API_BASE_URL = "https://cbt-api-version0-1.onrender.com/api"; // your Django API
 
 const useApi = () => {
   const [loading, setLoading] = useState(false);

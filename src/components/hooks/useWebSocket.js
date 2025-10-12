@@ -41,7 +41,7 @@ export function useWebSocket(testId) {
         // Token expired → refresh & reconnect
         try {
           const response = await axios.post(
-            "http://127.0.0.1:8000/api/token/refresh/",
+            "https://cbt-api-version0-1.onrender.com/api/token/refresh/",
             { refresh: localStorage.getItem("refreshToken") }
           );
 

@@ -30,7 +30,6 @@ const CreateQuestion = () => {
   const { loading, request } = useApi();
   const [tests, setTests] = useState([]);
   const [uploading, setUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
 
   const [question, setQuestion] = useState({
     text: "",
@@ -42,7 +41,7 @@ const CreateQuestion = () => {
     const file = event.target.files[0];
     if (!file) return;
     setUploading(true);
-    setUploadProgress(0);
+  
 
     const formData = new FormData();
     formData.append("file", file);
@@ -55,12 +54,6 @@ const CreateQuestion = () => {
         data: formData,
         auth: true,
         headers: { "Content-Type": "multipart/form-data" },
-        onUploadProgress: (progressEvent) => {
-          const percent = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          );
-          setUploadProgress(percent);
-        },
       });
       const success = !response || !response.error;
       if (success) {
@@ -86,7 +79,6 @@ const CreateQuestion = () => {
       );
     } finally {
       setUploading(false);
-      setUploadProgress(0);
     }
   };
 
@@ -256,13 +248,13 @@ const CreateQuestion = () => {
             </Button>
             {uploading && (
               <Box sx={{ width: "100%", mt: 2 }}>
-                <LinearProgress variant="determinate" value={uploadProgress} />
+                <LinearProgress />
                 <Typography
                   variant="caption"
                   sx={{ mt: 0.5, display: "block" }}
                   color="text.secondary"
                 >
-                  {uploadProgress}% completed
+                  uploading...
                 </Typography>
               </Box>
             )}
