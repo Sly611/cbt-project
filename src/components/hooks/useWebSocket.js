@@ -14,7 +14,7 @@ export function useWebSocket(testId) {
     }
 
     socketRef.current = new WebSocket(
-      `ws://cbt-api-version0-1.onrender.com/ws/test/${testId}/?token=${token}`
+      `wss://cbt-api-version0-1.onrender.com/ws/test/${testId}/?token=${token}`
     );
 
     socketRef.current.onopen = () => {

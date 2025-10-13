@@ -26,7 +26,7 @@ const OngoingTestsTable = () => {
   useEffect(() => {
     // Connect to your Django Channels WebSocket endpoint
     wsRef.current = new WebSocket(
-      `ws://cbt-api-version0-1.onrender.com/ws/ongoing-tests/?token=${token}`
+      `wss://cbt-api-version0-1.onrender.com/ws/ongoing-tests/?token=${token}`
     );
 
     wsRef.current.onopen = () => {

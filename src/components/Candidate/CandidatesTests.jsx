@@ -82,7 +82,7 @@ const CandidateTest = () => {
   useEffect(() => {
     setStage("details");
     const socket = new WebSocket(
-      `ws://cbt-api-version0-1.onrender.com/ws/test/${params.test_id}/?token=${token}`
+      `wss://cbt-api-version0-1.onrender.com/ws/test/${params.test_id}/?token=${token}`
     );
     setLoading(true);
     socket.onopen = () => {
