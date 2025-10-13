@@ -263,7 +263,7 @@ const CreateQuestion = () => {
               color="text.secondary"
               sx={{ mt: 1, fontSize: "0.85rem" }}
             >
-              Upload questions via <b>.csv, .xlsx, .docx</b>. (Select a test
+              Upload questions via <b>.csv, .xlsx</b>. (Select a test
               first)
             </Typography>
 
@@ -278,14 +278,14 @@ const CreateQuestion = () => {
               >
                 Excel Sample
               </Button>
-              <Button
+              {/* <Button
                 variant="outlined"
                 startIcon={<DownloadRoundedIcon />}
                 size="small"
                 onClick={() => handleDownloadSample("docx")}
               >
                 Docx Sample
-              </Button>
+              </Button> */}
             </Box>
           </Paper>
 

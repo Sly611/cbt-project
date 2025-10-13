@@ -13,19 +13,16 @@ import {
 } from "@mui/material";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AssignmentTurnedInIcon from "@mui/icons-material/AssignmentTurnedIn";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
-import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useApi from "../../../hooks/useApi";
+import { getTitleCase } from "../helpers/Format";
 
 const CandidateDetails = () => {
   const { loading, request } = useApi();
   const { candidate_id } = useParams();
   const [candidate, setCandidate] = useState(null);
-  const onDelete = () => {};
-  const onEdit = () => {};
+
 
   useEffect(() => {
     const fetchCandidate = async () => {
@@ -92,7 +89,7 @@ const CandidateDetails = () => {
             <AccountCircleIcon sx={{ fontSize: 80, color: "primary.main" }} />
             <Box>
               <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                {candidate.first_name} {candidate.last_name}
+                {getTitleCase(candidate.first_name)} {getTitleCase(candidate.last_name)}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {candidate.email}
