@@ -105,7 +105,7 @@ const CreatTest = () => {
     try {
       const response = await request({
         method: "POST",
-        url: "http://127.0.0.1:8000/api/instructor/test/new/",
+        url: "/instructor/test/new/",
         data: data,
         auth: true,
       });
