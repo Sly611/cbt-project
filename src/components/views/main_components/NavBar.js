@@ -80,9 +80,9 @@ export const NavBar = (props) => {
             gap: 1,
           }}
         >
-          <IconButton>
+          {/* <IconButton>
             <NotificationsRoundedIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="subtitle2">Welcome, {user.email}</Typography>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

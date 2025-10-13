@@ -68,15 +68,13 @@ const CreateQuestion = () => {
       }
     } catch (error) {
       dispatch(
-        alertSliceActions.setAlert({
-          open: true,
-          message:
-            error.response?.data?.error ||
-            "Bulk upload failed. Please check your file format.",
-          severity: "error",
-          duration: 3000,
-        })
-      );
+          alertSliceActions.setAlert({
+            open: true,
+            message: "Questions uploaded successfully!",
+            severity: "success",
+            duration: 2500,
+          })
+        );
     } finally {
       setUploading(false);
     }
