@@ -20,7 +20,7 @@ const CandidateList = () => {
   const [rows, setRows] = useState([]);
   const [copied, setCopied] = useState(false);
   const user = useSelector((state) => state.user.user);
-  const link = `https://cbt-api-version0-1.onrender.com/${user.username}/tests/register`;
+  const link = `https://cbt-project-git-main-caesars-projects-86a6b2e0.vercel.app/${user.username}/tests/register`;
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(link);
