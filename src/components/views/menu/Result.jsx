@@ -145,7 +145,7 @@ const Result = () => {
                       <TableCell>
                         <Chip
                           label={`${res.score}`}
-                          color={res.score >= 50 ? "success" : "error"}
+                          color={res.score >= 0.5 * testResult.total_score ? "success" : "error"}
                           variant="outlined"
                         />
                       </TableCell>

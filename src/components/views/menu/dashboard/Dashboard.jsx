@@ -97,63 +97,6 @@ const Dashboard = () => {
 
       <OngoingTestsTable />
       <UpcomingTestsTable testData={tests} />
-      {/* <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper sx={{ p: 2, borderRadius: 3 }}>
-            <Typography variant="h4">{activeTests}</Typography>
-            <Typography
-              variant="subtitle2"
-              fontWeight="bold"
-              color="textSecondary"
-            >
-              Active Tests
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper sx={{ p: 2, borderRadius: 3 }}>
-            <Typography variant="h4">{totalTests}</Typography>
-            <Typography
-              variant="subtitle2"
-              fontWeight="bold"
-              color="textSecondary"
-            >
-              Total Tests
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper sx={{ p: 2, borderRadius: 3 }}>
-            <Typography variant="h4">{candidates}</Typography>
-            <Typography
-              variant="subtitle2"
-              fontWeight="bold"
-              color="textSecondary"
-            >
-              Registered Candidates
-            </Typography>
-          </Paper>
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <Paper sx={{ p: 2, borderRadius: 3 }}>
-            <Typography variant="h4">{testsTaken}</Typography>
-            <Typography
-              variant="subtitle2"
-              fontWeight="bold"
-              color="textSecondary"
-            >
-              Completed Tests
-            </Typography>
-          </Paper>
-        </Grid>
-      </Grid> */}
-      <Box sx={{ mt: 4 }}>
-        <Paper sx={{ p: 2 }}>
-          <Typography variant="h6">Average Score</Typography>
-          <Typography variant="h3">{avgScore}%</Typography>
-        </Paper>
-      </Box>
-      {/* Add more sections for recent activity, upcoming tests, etc. */}
     </Box>
   );
 };
