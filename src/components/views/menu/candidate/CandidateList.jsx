@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import useApi from "../../../hooks/useApi";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import { useSelector } from "react-redux";
+import { getTitleCase } from "../helpers/Format";
 
 const CandidateList = () => {
   const { loading, request } = useApi();
@@ -77,8 +78,8 @@ const CandidateList = () => {
           response.map((student) => ({
             id: student.id,
             email: student.email,
-            first_name: student.first_name,
-            last_name: student.last_name,
+            first_name: getTitleCase(student.first_name),
+            last_name: getTitleCase(student.last_name),
             regNum: student.reg_number || "N/A",
             exams: student.tests_detail.length ?? 0,
           }))
