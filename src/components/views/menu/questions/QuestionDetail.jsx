@@ -28,7 +28,7 @@ const QuestionDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const options_leters = ["A", "B", "C", "D", "E"];
-  const [loading, request] = useApi();
+  const {loading, request} = useApi();
   const question = useSelector((state) => state.questions);
   const [anchoreEl, setAnchoreEl] = useState(null);
   const open = anchoreEl;
@@ -185,50 +185,3 @@ const QuestionDetail = () => {
 };
 
 export default QuestionDetail;
-
-{
-  /* <Button
-            variant="outlined"
-            size="small"
-            endIcon={<MoreVertIcon />}
-            onClick={handleMenuOpen}
-            disabled={selectedRows.length === 0}
-            sx={{
-              borderRadius: 20,
-              textTransform: "none",
-              fontWeight: 500,
-            }}
-          >
-            Actions
-          </Button>
-
-          <Menu
-            id="test-actions-menu"
-            anchorEl={menuAnchor}
-            open={Boolean(menuAnchor)}
-            onClose={handleMenuClose}
-            // PaperProps={{
-            //   elevation: 3,
-            //   sx: { borderRadius: 2, minWidth: 150 },
-            // }}
-          >
-            <MenuItem onClick={handleStartTest}>
-              <ListItemIcon>
-                <PlayCircleOutlineRoundedIcon fontSize="small" color="info" />
-              </ListItemIcon>
-              <Typography variant="body2">Start Test</Typography>
-            </MenuItem>
-            <MenuItem onClick={handleStopTest}>
-              <ListItemIcon>
-                <StopCircleOutlinedIcon fontSize="small" color="warning" />
-              </ListItemIcon>
-              <Typography variant="body2">Stop Test</Typography>
-            </MenuItem>
-            <MenuItem onClick={handleDeleteTest} sx={{ color: "error.main" }}>
-              <ListItemIcon>
-                <HighlightOffRoundedIcon fontSize="small" color="error" />
-              </ListItemIcon>
-              <Typography variant="body2">Delete</Typography>
-            </MenuItem>
-          </Menu> */
-}
