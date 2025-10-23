@@ -55,8 +55,7 @@ const CreateQuestion = () => {
         auth: true,
         headers: { "Content-Type": "multipart/form-data" },
       });
-      const success = !response || !response.error;
-      if (success) {
+      if (response || !response.error) {
         dispatch(
           alertSliceActions.setAlert({
             open: true,

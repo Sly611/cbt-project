@@ -17,11 +17,14 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { questionsSliceActions } from "../../../../store";
 
+
+
 const QuestionList = () => {
   const [questions, setQuestions] = useState([]);
   const { loading, request } = useApi();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   const questionDetailHandler = (question) => {
     dispatch(questionsSliceActions.getQuestions(question));
@@ -30,7 +33,6 @@ const QuestionList = () => {
 
   useEffect(() => {
     const getQuestions = async () => {
-      console.log("sent");
       const data = await request({
         method: "GET",
         url: "/instructor/test/questions/",
@@ -77,7 +79,7 @@ const QuestionList = () => {
 
       {/* Question Cards */}
       {questions.length === 0 && !loading ? (
-        <Typography>No questions available</Typography>
+        <Typography>No questions</Typography>
       ) : (
         <List disablePadding>
           <Grid container spacing={3}>
@@ -109,6 +111,7 @@ const QuestionList = () => {
                       }}
                     >
                       {/* Course Title */}
+
                       <Chip
                         label={`Test: ${question.course_title}`}
                         color="primary"

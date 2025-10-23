@@ -79,10 +79,10 @@ const NavBar = () => {
       }}
     >
       {/* Left Section: Logo */}
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+      <Box sx={{ display: "flex", alignItems: "center"}}>
         <SchoolOutlinedIcon
           color="primary"
-          sx={{ fontSize: "2rem", mr: 0.5 }}
+          sx={{ fontSize: "2rem" }}
         />
         <Link
           to="/"

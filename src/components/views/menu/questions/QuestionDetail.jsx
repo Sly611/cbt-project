@@ -4,26 +4,111 @@ import {
   Grid,
   Chip,
   Divider,
-  Paper,
   Tooltip,
+  IconButton,
+  Menu,
+  ListItemIcon,
+  MenuItem,
 } from "@mui/material";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import RadioButtonUncheckedOutlinedIcon from "@mui/icons-material/RadioButtonUncheckedOutlined";
 import { useSelector } from "react-redux";
 import { getTitleCase } from "../helpers/Format";
 import { useState } from "react";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
+import useApi from "../../../hooks/useApi";
+import { useDispatch } from "react-redux";
+import { alertSliceActions } from "../../../../store";
+import { useNavigate } from "react-router-dom";
+
 
 const QuestionDetail = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const options_leters = ["A", "B", "C", "D", "E"];
+  const [loading, request] = useApi();
   const question = useSelector((state) => state.questions);
-  const [ans, setAns] = useState("");
+  const [anchoreEl, setAnchoreEl] = useState(null);
+  const open = anchoreEl;
+
+  const handleMenuOpen = (event) => {
+    setAnchoreEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchoreEl(null);
+  };
+
+  const questionDeleteHandler = async () => {
+    try {
+      const response = await request({
+        auth: true,
+        method: "DELETE",
+        url: "instructor/tests/question",
+        data: { questionId: question.questions.id },
+      });
+      if (response && !response.error) {
+        dispatch(
+          alertSliceActions.setAlert({
+            open: true,
+            message: response.message || "Questions uploaded successfully!",
+            severity: "success",
+            duration: 2500,
+          })
+        );
+      }
+    } catch (error) {
+      dispatch(
+        alertSliceActions.setAlert({
+          open: true,
+          message: "Questions uploaded successfully!",
+          severity: "success",
+          duration: 2500,
+        })
+      );
+    } finally {
+      handleMenuClose();
+    }
+  };
 
   return (
     <Box sx={{ display: "flex", width: "100%", mt: 5 }}>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        <Typography variant="h6" my={1}>{`Test: ${getTitleCase(
-          question.questions.course_title
-        )}`}</Typography>
+        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h6" my={1}>{`Test: ${getTitleCase(
+            question.questions.course_title
+          )}`}</Typography>
+          <IconButton
+            aria-label="more"
+            id="more-button"
+            aria-haspopup="true"
+            onClick={handleMenuOpen}
+          >
+            <MoreVertIcon />
+          </IconButton>
+          <Menu
+            id="more-button"
+            open={open}
+            anchorEl={anchoreEl}
+            onClose={handleMenuClose}
+            slotProps={{ paper: { style: { width: "4rem" } } }}
+          >
+            <MenuItem onClick={() => navigate("/dashboard/questions/new")}>
+              <ListItemIcon>
+                <EditIcon />
+              </ListItemIcon>
+              <Typography variant="body2">Edit</Typography>
+            </MenuItem>
+            <MenuItem onClick={questionDeleteHandler}>
+              <ListItemIcon>
+                <DeleteForeverRoundedIcon />
+              </ListItemIcon>
+              <Typography variant="body2">Delete</Typography>
+            </MenuItem>
+          </Menu>
+        </Box>
         <Grid container spacing={3}>
           {question.questions.questions.map((q, index) => (
             <Grid size={{ sm: 12, md: 6 }}>
@@ -100,3 +185,50 @@ const QuestionDetail = () => {
 };
 
 export default QuestionDetail;
+
+{
+  /* <Button
+            variant="outlined"
+            size="small"
+            endIcon={<MoreVertIcon />}
+            onClick={handleMenuOpen}
+            disabled={selectedRows.length === 0}
+            sx={{
+              borderRadius: 20,
+              textTransform: "none",
+              fontWeight: 500,
+            }}
+          >
+            Actions
+          </Button>
+
+          <Menu
+            id="test-actions-menu"
+            anchorEl={menuAnchor}
+            open={Boolean(menuAnchor)}
+            onClose={handleMenuClose}
+            // PaperProps={{
+            //   elevation: 3,
+            //   sx: { borderRadius: 2, minWidth: 150 },
+            // }}
+          >
+            <MenuItem onClick={handleStartTest}>
+              <ListItemIcon>
+                <PlayCircleOutlineRoundedIcon fontSize="small" color="info" />
+              </ListItemIcon>
+              <Typography variant="body2">Start Test</Typography>
+            </MenuItem>
+            <MenuItem onClick={handleStopTest}>
+              <ListItemIcon>
+                <StopCircleOutlinedIcon fontSize="small" color="warning" />
+              </ListItemIcon>
+              <Typography variant="body2">Stop Test</Typography>
+            </MenuItem>
+            <MenuItem onClick={handleDeleteTest} sx={{ color: "error.main" }}>
+              <ListItemIcon>
+                <HighlightOffRoundedIcon fontSize="small" color="error" />
+              </ListItemIcon>
+              <Typography variant="body2">Delete</Typography>
+            </MenuItem>
+          </Menu> */
+}

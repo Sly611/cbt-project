@@ -367,11 +367,9 @@ const SignupForm = () => {
             mb: 2,
           }}
         >
-          {/* <Link to="/dashboard"> */}
           <Button
             variant="contained"
             color="primary"
-            size="small"
             fullWidth
             type="submit"
             disabled={isLoading}
@@ -385,12 +383,6 @@ const SignupForm = () => {
           >
             Create Account
           </Button>
-
-          {/* {error && (
-            <Typography variant="caption" color="error">
-              {error}
-            </Typography>
-          )} */}
         </CardActions>
         <Box sx={{ p: 1, display: "flex", justifyContent: "center" }}>
           <Typography variant="caption">

@@ -5,12 +5,9 @@ import {
   Chip,
   MenuItem,
   Menu,
-  duration,
-  List,
   ListItemIcon,
 } from "@mui/material";
 import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRounded";
-import theme from "../../../../Theme";
 import { DataGrid } from "@mui/x-data-grid";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useNavigate } from "react-router-dom";
@@ -57,7 +54,6 @@ const TestList = () => {
   };
 
   const handleMenuOpen = (event) => {
-    console.log(selectedRows);
     setMenuAnchor(event.currentTarget);
   };
   const handleMenuClose = () => {
@@ -275,10 +271,10 @@ const TestList = () => {
             anchorEl={menuAnchor}
             open={Boolean(menuAnchor)}
             onClose={handleMenuClose}
-            PaperProps={{
-              elevation: 3,
-              sx: { borderRadius: 2, minWidth: 150 },
-            }}
+            // PaperProps={{
+            //   elevation: 3,
+            //   sx: { borderRadius: 2, minWidth: 150 },
+            // }}
           >
             <MenuItem onClick={handleStartTest}>
               <ListItemIcon>
@@ -334,10 +330,8 @@ const TestList = () => {
             checkboxSelection
             onRowSelectionModelChange={(newSelectionModel) => {
               // newSelectionModel = array of selected row IDs
-              console.log(newSelectionModel);
               const ids = Array.from(newSelectionModel.ids);
               const selectedData = rows.filter((row) => ids.includes(row.id));
-              console.log(selectedData);
               setSelectedRows(selectedData.map((data) => data.id)); // store the selected row objects
             }}
             sx={{
