@@ -46,7 +46,7 @@ const QuestionDetail = () => {
       const response = await request({
         auth: true,
         method: "DELETE",
-        url: "instructor/tests/question",
+        url: "instructor/tests/question/",
         data: { questionId: question.questions.id },
       });
       if (response && !response.error) {
@@ -93,7 +93,7 @@ const QuestionDetail = () => {
             open={open}
             anchorEl={anchoreEl}
             onClose={handleMenuClose}
-            slotProps={{ paper: { style: { width: "4rem" } } }}
+            // slotProps={{ paper: { style: { width: "4rem" } } }}
           >
             <MenuItem onClick={() => navigate("/dashboard/questions/new")}>
               <ListItemIcon>
