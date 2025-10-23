@@ -35,6 +35,7 @@ const theme = createTheme({
         root: {
           padding: 0,
           margin: 0,
+          elevation: "none"
         },
       },
     },

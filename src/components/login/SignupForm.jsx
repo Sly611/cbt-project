@@ -136,9 +136,7 @@ const SignupForm = () => {
             gap: 3,
           }}
         >
-          {/* <AccountBoxRoundedIcon
-            sx={{ width: "128px", height: "128px", color: "primary.main" }}
-          /> */}
+
           <Box sx={{ width: "100%" }}>
             <TextField
               size="small"

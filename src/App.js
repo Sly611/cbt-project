@@ -25,13 +25,36 @@ import CandidateLogin from "./components/Candidate/CandidateLogin";
 import Index from "./components/Candidate/Index";
 import CandidateTest from "./components/Candidate/CandidatesTests";
 import Score from "./components/Candidate/Score";
+import About from "./components/Homepage/About";
+import Hero from "./components/Homepage/Hero";
+import Documentation from "./components/Homepage/Documentation";
+import Contact from "./components/Homepage/Contact";
 
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     children: [
-      { index: true, element: <Landinpage /> }, // index instead of path="/"
+      {
+        path: "",
+        element: <Landinpage />,
+        children: [
+          { index: true, element: <Hero /> },
+
+          {
+            path: "about",
+            element: <About />,
+          },
+          {
+            path: "documentation",
+            element: <Documentation />,
+          },
+          {
+            path: "contact",
+            element: <Contact />,
+          },
+        ],
+      },
       {
         path: "account",
         element: <LoginPage />,

@@ -1,136 +1,100 @@
-import { Box, Grid, Typography, Link, Divider } from "@mui/material";
+import { Box, Grid, Typography, Link, Divider, IconButton } from "@mui/material";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import XIcon from "@mui/icons-material/X";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
-const Footer = () => {
+export default function Footer() {
   return (
     <Box
       component="footer"
       sx={{
-        backgroundColor: "#0d0d0d",
-        color: "#ccc",
-        // px: { xs: 2},
-        py: 5,
-        mt: 10,
+        p: { xs: 3, md: 5 },
+        mt: 13,
+        backgroundColor: "background.paper",
       }}
     >
-      <Grid container spacing={4} justifyContent="space-evenly">
-        <Grid item xs={12} md={4}>
-          <Typography variant="h6" fontWeight="bold" gutterBottom>
-            Krama
+      <Divider sx={{ mb: 3 }} />
+
+      <Grid
+        container
+        justifyContent="space-between"
+        alignItems="center"
+        spacing={2}
+        sx={{
+          flexDirection: { xs: "column", sm: "row" },
+          textAlign: { xs: "center", sm: "left" },
+          rowGap: 2,
+        }}
+      >
+        {/* Left Section */}
+        <Grid
+          item
+          xs={12}
+          sm="auto"
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            alignItems: "center",
+            gap: { xs: 1, sm: 3 },
+          }}
+        >
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ fontWeight: 500 }}
+          >
+            © {new Date().getFullYear()} Krama. All rights reserved.
           </Typography>
-          <Typography variant="body2" sx={{ maxWidth: 300 }}>
-            Elevate your digital experience with our all-in-one platform.
-            Simple. Powerful. Seamless.
-          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: { xs: 2, sm: 3 },
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <Link href="#" underline="none" color="text.primary">
+              <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                Terms
+              </Typography>
+            </Link>
+            <Link href="#" underline="none" color="text.primary">
+              <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                Privacy
+              </Typography>
+            </Link>
+            <Link href="#" underline="none" color="text.primary">
+              <Typography variant="body2" sx={{ fontWeight: 500 }}>
+                Support
+              </Typography>
+            </Link>
+          </Box>
         </Grid>
 
-        <Grid item xs={12} sm={6} md={2}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            Product
-          </Typography>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Features
-          </Link>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Pricing
-          </Link>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Integrations
-          </Link>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={2}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            Company
-          </Typography>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            About
-          </Link>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Careers
-          </Link>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Contact
-          </Link>
-        </Grid>
-
-        <Grid item xs={12} sm={6} md={2}>
-          <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-            Resources
-          </Typography>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Docs
-          </Link>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Blog
-          </Link>
-          <Link
-            href="#"
-            underline="none"
-            color="inherit"
-            variant="body2"
-            display="block"
-          >
-            Support
-          </Link>
+        {/* Right Section (Socials) */}
+        <Grid
+          item
+          xs={12}
+          sm="auto"
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            gap: 2,
+          }}
+        >
+          <IconButton color="primary" component="a" href="#">
+            <MailOutlineIcon />
+          </IconButton>
+          <IconButton color="primary" component="a" href="#">
+            <XIcon />
+          </IconButton>
+          <IconButton color="primary" component="a" href="#">
+            <GitHubIcon />
+          </IconButton>
         </Grid>
       </Grid>
-
-      <Divider sx={{ my: 4, borderColor: "rgba(255,255,255,0.1)" }} />
-
-      <Typography variant="body2" align="center" sx={{ color: "#888" }}>
-        © {new Date().getFullYear()} Krama. All rights reserved.
-      </Typography>
     </Box>
   );
-};
-
-
-export default Footer;
+}

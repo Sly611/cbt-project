@@ -29,7 +29,7 @@ import useAuthenticate from "../hooks/useAuthenticate";
 import { useState, useEffect } from "react";
 import useApi from "../hooks/useApi";
 import { useParams } from "react-router-dom";
-import image from "../../assets/images/GridBackground.jpg";
+import bg from "../../assets/images/background.svg";
 
 const CandidateLogin = () => {
   const [showpassword, setShowPassword] = useState(false);
@@ -96,8 +96,10 @@ const CandidateLogin = () => {
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-        backgroundImage: image,
-      }}
+        backgroundImage: `url(${bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover", // or 'contain' / 'auto'
+        backgroundPosition: "center",      }}
     >
       <Card
         sx={{
@@ -109,7 +111,7 @@ const CandidateLogin = () => {
           background: "rgba(255, 255, 255, 0.8)",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(100px)",
+          WebkitBackdropFilter: "blur(1px)",
           border: "1px solid rgba(255, 255, 255, 0.32)",
         }}
       >

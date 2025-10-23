@@ -18,13 +18,13 @@ import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import { useState, useEffect } from "react";
 import useApi from "../hooks/useApi";
 import { Link, useNavigate } from "react-router-dom";
-import useAuthenticate from "../hooks/useAuthenticate";
 import useInput from "../hooks/useInput";
 import { useParams } from "react-router-dom";
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
 import CustomModal from "../views/menu/helpers/Modal";
 import { useDispatch } from "react-redux";
 import { alertSliceActions } from "../../store";
+import bg from "../../assets/images/background.svg";
 
 const CandidateSignup = () => {
   const [selectedTest, setSelectedTest] = useState("");
@@ -80,7 +80,6 @@ const CandidateSignup = () => {
   } = useInput((value) => value === password);
 
   const formInValid = firstNameIsInvalid || lastNameIsInvalid || emailIsInvalid;
-  // const { isLoading, sendRequest } = useAuthenticate();
   const [showpassword, setShowPassword] = useState(false);
 
   const [open, setOpen] = useState(false);
@@ -160,12 +159,14 @@ const CandidateSignup = () => {
   }, []);
 
   return (
-    <Container
+    <Box
       sx={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
+        backgroundImage: `url(${bg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover", // or 'contain' / 'auto'
+        backgroundPosition: "center",
       }}
     >
       <CustomModal
@@ -186,6 +187,7 @@ const CandidateSignup = () => {
           flexDirection: "column",
           alignItems: "center",
           width: "32rem",
+          my: 5,
           p: 2,
           gap: 3,
           elevation: 3,
@@ -193,7 +195,7 @@ const CandidateSignup = () => {
           background: "rgba(255, 255, 255, 0.1)",
           boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
           backdropFilter: "blur(10px)",
-          WebkitBackdropFilter: "blur(100px)",
+          WebkitBackdropFilter: "blur(1px)",
           border: "1px solid rgba(255, 255, 255, 0.2)",
         }}
       >
@@ -208,10 +210,7 @@ const CandidateSignup = () => {
             value={selectedTest}
             label="Test"
             onChange={(event) => setSelectedTest(event.target.value)}
-            // sx={{
-            //   backgroundColor: theme.palette.grey[200],
-            //   borderRadius: 2,
-            // }}
+
           >
             <MenuItem value="">
               <em>{loading && "loading..."}</em>
@@ -378,7 +377,7 @@ const CandidateSignup = () => {
           <Link to={`/${params.instructor}/tests/`}>Login</Link>{" "}
         </Typography>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

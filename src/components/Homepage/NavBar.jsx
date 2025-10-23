@@ -1,40 +1,63 @@
 import {
   Typography,
   Box,
-  Link,
-  Avatar,
-  Menu,
-  MenuItem,
   IconButton,
-  ListItemIcon,
+  Drawer,
+  Divider,
+  ListItem,
+  ListItemText,
+  List,
+  // Link,
+  Button,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
+import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
+import MenuIcon from "@mui/icons-material/Menu";
+import { styled } from "@mui/material/styles";
+import theme from "../../Theme";
 
-import useAuthenticate from "../hooks/useAuthenticate";
+const StyledLink = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.primary.main,
+  fontWeight: 500,
+  fontSize: "1rem",
+  padding: "8px 12px",
+  borderRadius: "6px",
+  transition: "color 0.3s ease",
+  "&:hover": {
+    color: theme.palette.primary.dark,
+    backgroundColor: theme.palette.action.hover,
+  },
+}));
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const drawerWidth = 200;
 
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleDrawerTransitionEnd = () => {
+    setIsClosing(false);
   };
 
-  const handleCloseUserMenu = (menu) => {
-    if (menu === "signup") {
-      navigate("account")
-      setAnchorElUser(null);
-    } else if (menu === "login") {
-      navigate("account/login");
-      setAnchorElUser(null);
-    } else {
-      setAnchorElUser(null);
+  const handleDrawerClose = () => {
+    setIsClosing(true);
+    setMobileOpen(false);
+  };
+  const handleDrawerToggle = () => {
+    if (!isClosing) {
+      setMobileOpen(!mobileOpen);
     }
   };
+
+  const navLinks = [
+    { label: "About", href: "about" },
+    { label: "Documentation", href: "documentation" },
+    { label: "Contact", href: "contact" },
+  ];
 
   return (
     <Box
@@ -47,94 +70,152 @@ const NavBar = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: "21px 40px",
+        px: { xs: 2, md: 6 },
+        py: 1.5,
         zIndex: 10,
-        backgroundColor: "rgba(255, 255, 255, 0.02)", // translucent
-        backdropFilter: "blur(13px)",
+        backgroundColor: "rgba(255, 255, 255, 0.41)",
+        backdropFilter: "blur(10px)",
+        borderBottom: "1px solid rgba(0,0,0,0.1)",
       }}
     >
-      <Link href="#" underline="none">
-        <Typography variant="h5" color="primary" sx={{ fontWeight: 700 }}>
-          Krama
-        </Typography>
-      </Link>
-      <Box
-        gap={13}
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <Link href="#" underline="none">
+      {/* Left Section: Logo */}
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <SchoolOutlinedIcon
+          color="primary"
+          sx={{ fontSize: "2rem", mr: 0.5 }}
+        />
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "#1976d2",
+            fontWeight: 500,
+            fontSize: "1rem",
+            padding: "8px 12px",
+            borderRadius: "6px",
+            transition: "0.3s",
+          }}
+        >
           <Typography
-            variant="body1"
+            variant="h5"
+            fontWeight="bold"
             color="primary"
-            sx={{ fontWeight: 500, px: 1 }}
+            sx={{ letterSpacing: "1px" }}
           >
-            Home
-          </Typography>
-        </Link>
-        <Link href="#" underline="none">
-          <Typography
-            variant="body1"
-            color="primary"
-            sx={{ fontWeight: 500, px: 1 }}
-          >
-            About
-          </Typography>
-        </Link>
-        <Link href="#" underline="none">
-          <Typography
-            variant="body1"
-            color="primary"
-            sx={{ fontWeight: 500, px: 1 }}
-          >
-            Contact
+            Krama
           </Typography>
         </Link>
       </Box>
-      {/* <AccountCircleIcon color="primary.main" /> */}
-      <IconButton color="primary" onClick={handleOpenUserMenu}>
-        <AccountCircleIcon
-          color="inherit"
-          sx={{ height: "2rem", width: "2rem" }}
-        />
-      </IconButton>
-      <Menu
-        sx={{ mt: "45px" }}
-        id="menu-appbar"
-        anchorEl={anchorElUser}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
+      <Box
+        sx={{
+          display: { xs: "none", sm: "flex" },
+          justifyContent: "space-between",
+          alignItems: "center",
+          gap: 5,
         }}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        open={Boolean(anchorElUser)}
-        onClose={handleCloseUserMenu}
       >
-        <MenuItem onClick={() => handleCloseUserMenu("signup")}>
-          <ListItemIcon>
-            <Avatar
-              sx={{ width: "1.3rem", height: "1.3rem", marginRight: 2 }}
-            />
-          </ListItemIcon>
-          <Typography variant="body2" sx={{ textAlign: "center" }}>
-            Signup
-          </Typography>
-        </MenuItem>
-        <MenuItem onClick={() => handleCloseUserMenu("login")}>
-          <ListItemIcon>
-            <LoginRoundedIcon fontSize="small" />
-          </ListItemIcon>
-          <Typography variant="body2" sx={{ textAlign: "center" }}>
-            Login
-          </Typography>
-        </MenuItem>
-      </Menu>
+        {navLinks.map((link) => (
+          <StyledLink
+            key={link.label}
+            to={link.href}
+            // sx={{
+            //   textDecoration: "none",
+            //   color: "#1976d2",
+            //   fontWeight: 500,
+            //   fontSize: "1rem",
+            //   transition: "0.3s",
+            //   "&:hover": { color: "primary.main" },
+            // }}
+          >
+            {link.label}
+          </StyledLink>
+        ))}
+        <Button
+          variant="outlined"
+          endIcon={<LoginRoundedIcon />}
+          sx={{ height: "2rem" }}
+          onClick={() => navigate("/account/login")}
+        >
+          Login
+        </Button>
+      </Box>
+
+      <>
+        {/* Mobile Menu Icon */}
+        <IconButton
+          color="primary"
+          aria-label="open drawer"
+          edge="end"
+          onClick={handleDrawerToggle}
+          sx={{ mr: 1, display: { xs: "block", sm: "none" } }}
+        >
+          <MenuIcon />
+        </IconButton>
+
+        {/* Mobile Drawer */}
+        <Drawer
+          variant="temporary"
+          open={mobileOpen}
+          onTransitionEnd={handleDrawerTransitionEnd}
+          onClose={handleDrawerClose}
+          anchor="right"
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          slotProps={{
+            root: {
+              keepMounted: true, // Better open performance on mobile.
+            },
+          }}
+        >
+          <Box sx={{ width: 200, p: 2 }}>
+            <List>
+              {navLinks.map((link) => (
+                <ListItem
+                  button
+                  key={link.label}
+                  component="a"
+                  // href={link.href}
+                  onClick={() => {
+                    navigate(link.href);
+                    handleDrawerClose();
+                  }}
+                >
+                  <ListItemText primary={link.label} />
+                </ListItem>
+              ))}
+            </List>
+            <Divider sx={{ my: 1 }} />
+            <ListItem button onClick={handleDrawerClose}>
+              <Button
+                variant="contained"
+                fullWidth
+                disableElevation
+                sx={{ my: 1 }}
+                onClick={() => navigate("account")}
+              >
+                Signup
+              </Button>
+            </ListItem>
+            <ListItem button onClick={handleDrawerClose}>
+              <Button
+                variant="outlined"
+                fullWidth
+                sx={{ my: 1 }}
+                onClick={() => {
+                  navigate("/account/login");
+                }}
+              >
+                Login
+              </Button>
+            </ListItem>
+          </Box>
+        </Drawer>
+      </>
     </Box>
   );
 };

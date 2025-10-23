@@ -1,16 +1,9 @@
-import {
-  Box,
-  Typography,
-
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import calender from "../../assets/images/Calendar.png";
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
 
 const LogingPage = () => {
-
-
   return (
     <Box
       sx={{
@@ -32,7 +25,7 @@ const LogingPage = () => {
           overflow: "hidden",
           alignItems: "center",
         }}
-        >
+      >
         <Box
           sx={{
             position: "relative",
@@ -70,9 +63,6 @@ const LogingPage = () => {
         }}
       >
         <Outlet />
-        {/* <SignupForm /> */}
-        {/* <LoginForm /> */}
-        {/* <LoginForm /> */}
       </Box>
     </Box>
   );

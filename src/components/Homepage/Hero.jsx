@@ -1,81 +1,102 @@
-import { Container, Typography, Box, Button } from "@mui/material";
-import image from "../../assets/images/Edu.jpg";
-import ArrowRightAltRoundedIcon from "@mui/icons-material/ArrowRightAltRounded";
-import { Link } from "react-router-dom";
-// import image from "../../assets/images/Premium.jpg"
+import { Typography, Box, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
-        position: "relative",
+        my: { xs: "3rem", md: "6rem" },
         display: "flex",
-        justifyContent: "space-between",
+        flexDirection: "column",
         alignItems: "center",
-        minHeight: "100%",
-        width: "100%",
-        marginTop: "3rem",
-        gap:2
-        // px: "auto",
+        gap: 3,
+        px: { xs: 2, sm: 5, md: "10%" },
+        textAlign: "center",
       }}
     >
-      <Box
+      <Typography
+        color="primary"
+        fontWeight={700}
         sx={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          px: 3,
+          fontSize: {
+            xs: "2rem", // small phones
+            sm: "2.5rem", // larger phones
+            md: "3.2rem", // tablets
+            lg: "3.8rem", // desktops
+          },
+          lineHeight: 1.2,
         }}
       >
-        <Typography
-          variant="h2"
-          color="primary"
-          fontWeight={700}
-          mb={2}
-          textAlign="center"
-        >
-          Smart Testing Made Simple With Krama
-        </Typography>
-        <Typography variant="h6" mb={4} textAlign="center">
-          Easily create, manage, and deliver exams through a secure, cloud-based
-          platform. Designed for speed and simplicity, our system lets you build
-          tests, monitor performance, and access results instantly, all in one
-          place.
-        </Typography>
-        <Link to="/account">
-          <Button
-            variant="contained"
-            color="primary"
-            sx={{
-              width: "fit-content",
-              px: 5,
-              borderRadius: 5,
-              textTransform: "none",
-            }}
-          >
-            Get started free
-            <ArrowRightAltRoundedIcon
-              color="inherit"
-              fontSize="small"
-              sx={{ mt: "3px" }}
-            />
-          </Button>
-        </Link>
-      </Box>
-      <Box
-        component="img"
-        src={image}
-        alt="CBT Illustration"
+        Smart Testing Made Simple With Krama
+      </Typography>
+
+      <Typography
+        color="text.secondary"
+        fontWeight={500}
         sx={{
-          // paddingRight: 5,
-          maxWidth: "32rem", // adjust based on how big you want it
-          height: "auto", // keeps image in correct aspect ratio
-          objectFit: "contain", // ensures full image fits inside the box
-          zIndex: 2,
-          // opacity: "70%",
+          fontSize: {
+            xs: "1rem",
+            sm: "1.1rem",
+            md: "1.25rem",
+          },
+          maxWidth: "800px",
+          mb: { xs: 3, sm: 4 },
         }}
-      />
+      >
+        A modern cloud-based examination system built for institutions and
+        individuals that value efficiency and accuracy. Create, manage, and
+        analyze tests with ease, all from one intuitive dashboard.
+      </Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: "center",
+          alignItems: "center",
+          gap: { xs: 2, sm: 3 },
+          width: "100%",
+          maxWidth: "400px",
+        }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          disableElevation
+          fullWidth={false}
+          sx={{
+            borderRadius: 0,
+            height: "3rem",
+            px: { sm: 6, md: 6 },
+            fontWeight: 600,
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+            width: { xs: "100%", sm: "auto" },
+          }}
+          onClick={() => navigate("account")}
+        >
+          Get Started
+        </Button>
+
+        <Button
+          variant="outlined"
+          color="primary"
+          endIcon={<ChevronRightIcon />}
+          onClick={() => navigate("about")}
+          sx={{
+            borderRadius: 0,
+            height: "3rem",
+            px: { sm: 4, md: 4 },
+            fontWeight: 600,
+            fontSize: { xs: "0.9rem", sm: "1rem" },
+            width: { xs: "100%", sm: "auto" },
+          }}
+        >
+          Learn More
+        </Button>
+      </Box>
     </Box>
   );
 };
