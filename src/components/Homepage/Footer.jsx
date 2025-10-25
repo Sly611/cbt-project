@@ -84,13 +84,13 @@ export default function Footer() {
             gap: 2,
           }}
         >
-          <IconButton color="primary" component="a" href="#">
+          <IconButton color="primary" component="a" href="caleb.usha.yt@gmail.com">
             <MailOutlineIcon />
           </IconButton>
-          <IconButton color="primary" component="a" href="#">
+          <IconButton color="primary" component="a" href="https://x.com/zobo_sly/">
             <XIcon />
           </IconButton>
-          <IconButton color="primary" component="a" href="#">
+          <IconButton color="primary" component="a" href="https://github.com/Sly611/">
             <GitHubIcon />
           </IconButton>
         </Grid>

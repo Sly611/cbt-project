@@ -70,7 +70,7 @@ export default function Contact() {
               </Typography>
               {/* 👉 Replace this with your real email later */}
               <Link
-                href="#"
+                href="caleb.usha.yt@gmail.com"
                 underline="hover"
                 color="primary"
                 sx={{ fontSize: "0.95rem" }}
@@ -101,7 +101,7 @@ export default function Contact() {
                 color="primary"
                 sx={{ fontSize: "0.95rem" }}
               >
-                github.com/your-username
+                Sly611
               </Link>
             </Grid>
 
@@ -122,12 +122,12 @@ export default function Contact() {
               </Typography>
               {/* 👉 Replace this with your X (Twitter) link */}
               <Link
-                href="#"
+                href="https://x.com/zobo_sly"
                 underline="hover"
                 color="primary"
                 sx={{ fontSize: "0.95rem" }}
               >
-                x.com/your-handle
+                @zobo_sly
               </Link>
             </Grid>
           </Grid>
