@@ -103,7 +103,6 @@ const CandidateList = () => {
                 border: "none",
                 maxWidth: { xs: "100%", sm: "100%", md: "80%" },
                 "& .MuiDataGrid-columnHeaders": {
-                  // backgroundColor: theme.palette.background.default,
                   borderBottom: "none !important",
                   fontWeight: 600,
                   height: "3rem",
