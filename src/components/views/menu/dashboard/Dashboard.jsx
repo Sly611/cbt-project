@@ -48,7 +48,6 @@ const Dashboard = () => {
     return finishedTests.length;
   };
 
-  const avgScore = 76;
 
   useEffect(() => {
     const getTests = async () => {
@@ -86,7 +85,7 @@ const Dashboard = () => {
   return (
     <Box sx={{ mt: 3 }}>
       <Typography variant="h5" sx={{ paddingBottom: 3 }}>
-        Good day, {user.username}
+        Hello, {getTitleCase(user.first_name)}
       </Typography>
       <StatsCards
         activeTests={getActiveTests(tests)}

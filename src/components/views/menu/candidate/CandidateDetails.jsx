@@ -23,6 +23,29 @@ const CandidateDetails = () => {
   const { candidate_id } = useParams();
   const [candidate, setCandidate] = useState(null);
 
+  const getTest = async (test_id) => {
+    const response = await request({
+      auth: true,
+      method: "GET",
+      url: `insrtuctor/tests/detail/${test_id}`,
+    });
+    return response;
+  };
+
+  const getApr = (tests) => {
+    console.log(tests);
+    let passed_tests = 0;
+
+    for (var i = 0; i < tests.length; i++) {
+      var test = getTest(tests[i].id);
+      var score_percent = (tests[i].score / test.total_score) * 100;
+      if (score_percent > 0) {
+        passed_tests++;
+      }
+    }
+
+    return (passed_tests / tests.length) * 100;
+  };
 
   useEffect(() => {
     const fetchCandidate = async () => {
@@ -89,7 +112,8 @@ const CandidateDetails = () => {
             <AccountCircleIcon sx={{ fontSize: 80, color: "primary.main" }} />
             <Box>
               <Typography variant="h6" sx={{ fontWeight: 600 }}>
-                {getTitleCase(candidate.first_name)} {getTitleCase(candidate.last_name)}
+                {getTitleCase(candidate.first_name)}{" "}
+                {getTitleCase(candidate.last_name)}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {candidate.email}
@@ -108,7 +132,7 @@ const CandidateDetails = () => {
               Total Tests Taken
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: 700 }}>
-              {candidate.tests_detail?.length ?? 0}
+              {getApr(candidate.tests_detail) ?? 0}
             </Typography>
           </Box>
         </Box>
@@ -155,7 +179,7 @@ const CandidateDetails = () => {
                 <ListItemText
                   primary={
                     <Typography variant="subtitle1" fontWeight={600}>
-                      {test.title}
+                      {getTitleCase(test.title)}
                     </Typography>
                   }
                   secondary={`Score: ${test.score ?? "N/A"} | Date: ${new Date(

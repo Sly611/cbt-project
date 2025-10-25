@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import ContactSupportOutlinedIcon from "@mui/icons-material/ContactSupportOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 
@@ -183,7 +182,7 @@ const Support = () => {
                 If you need help or want to report an issue, our support team is
                 ready to assist.
                 <br />
-                📧 Email: <strong>support@example.com</strong>
+                📧 Email: <strong>support@Krama.com</strong>
                 <br />
                 🕓 Response time: 24–48 hours
                 <br />

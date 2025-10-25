@@ -10,7 +10,6 @@ import Candidates from "./components/views/menu/candidate/Candidates";
 import Result from "./components/views/menu/Result";
 import Support from "./components/views/settings/Support";
 import Profile from "./components/views/settings/Profile";
-import Settings from "./components/views/settings/Settings";
 import Landinpage from "./components/Homepage/LandingPage";
 import TestList from "./components/views/menu/test/TestList";
 import CreatTest from "./components/views/menu/test/CreateTest";
@@ -96,7 +95,6 @@ const routes = createBrowserRouter([
           },
           { path: "result", element: <Result /> },
           { path: "profile", element: <Profile /> },
-          { path: "settings", element: <Settings /> },
           { path: "support", element: <Support /> },
         ],
       },

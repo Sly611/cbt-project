@@ -25,7 +25,6 @@ const QuestionList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
   const questionDetailHandler = (question) => {
     dispatch(questionsSliceActions.getQuestions(question));
     navigate("detail");
@@ -39,7 +38,6 @@ const QuestionList = () => {
         auth: true,
       });
       if (data) {
-        console.log(data);
         setQuestions(data);
       }
     };

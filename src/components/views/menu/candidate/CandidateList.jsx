@@ -22,7 +22,6 @@ const CandidateList = () => {
   const [copied, setCopied] = useState(false);
   const user = useSelector((state) => state.user.user);
   const link = `https://cbt-project-git-main-caesars-projects-86a6b2e0.vercel.app/${user.username}/tests/register`;
-
   const handleCopy = async () => {
     await navigator.clipboard.writeText(link);
     setCopied(true);
@@ -35,10 +34,7 @@ const CandidateList = () => {
       width: 150,
       sortable: false,
       renderCell: (params) => (
-        <Link
-          to={`${params.row.id}`}
-          style={{ textDecoration: "none" }}
-        >
+        <Link to={`${params.row.id}`} style={{ textDecoration: "none" }}>
           {params.value}
         </Link>
       ),
@@ -72,7 +68,6 @@ const CandidateList = () => {
         url: "/instructor/students/",
         auth: true,
       });
-      console.log(response);
       if (response) {
         setRows(
           response.map((student) => ({
@@ -96,11 +91,12 @@ const CandidateList = () => {
           <Typography variant="h6">Students</Typography>
         </Grid>
         <Grid size={{ xs: 12 }}>
-          {!loading && (
+          {loading ? (
+            <CircularProgress />
+          ) : (
             <DataGrid
               columns={columns}
               rows={rows}
-              checkboxSelection
               size="small"
               sx={{
                 backgroundColor: "inherit",

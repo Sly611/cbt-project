@@ -20,7 +20,6 @@ import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 const OngoingTestsTable = () => {
   const token = localStorage.getItem("accessToken");
   const [ongoingTests, setOngoingTests] = useState([]);
-  const [ elapsedTime, SetElapsedTime ] = useState(0);
   const wsRef = useRef(null);
 
   useEffect(() => {
@@ -37,7 +36,6 @@ const OngoingTestsTable = () => {
     wsRef.current.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.ongoing_tests) {
-        console.log("Received ongoing tests:", data.ongoing_tests);
         setOngoingTests(data.ongoing_tests);
       }
     };

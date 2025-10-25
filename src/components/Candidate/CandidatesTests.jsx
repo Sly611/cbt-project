@@ -151,7 +151,6 @@ const CandidateTest = () => {
           if (data.time) {
             setTime(data.time);
           }
-          console.log(data);
         }
       };
     } else {

@@ -173,15 +173,7 @@ const SignupForm = () => {
               onBlur={firstNameBlurHandler}
               onChange={firstNameChangeHandler}
               value={firstName}
-              // slotProps={{
-              //   input: {
-              //     endAdornment: (
-              //       <InputAdornment position="end">
-              //         <AccountBoxRoundedIcon fontSize="small" />
-              //       </InputAdornment>
-              //     ),
-              //   },
-              // }}
+
             />
             {firstNameIsInvalid && (
               <Typography
@@ -208,15 +200,7 @@ const SignupForm = () => {
               onBlur={lastNameBlurHandler}
               onChange={lastNameChangeHandler}
               value={lastName}
-              // slotProps={{
-              //   input: {
-              //     endAdornment: (
-              //       <InputAdornment position="end">
-              //         <AccountBoxRoundedIcon fontSize="small" />
-              //       </InputAdornment>
-              //     ),
-              //   },
-              // }}
+
             />
             {lastNameIsInvalid && (
               <Typography
@@ -243,15 +227,7 @@ const SignupForm = () => {
               onBlur={emailBlurHandler}
               onChange={emailChangeHandler}
               value={email}
-              // slotProps={{
-              //   input: {
-              //     endAdornment: (
-              //       <InputAdornment position="end">
-              //         <EmailRoundedIcon fontSize="small" />
-              //       </InputAdornment>
-              //     ),
-              //   },
-              // }}
+
             />
             {emailIsInvalid && (
               <Typography
@@ -260,8 +236,8 @@ const SignupForm = () => {
                 sx={{
                   fontStyle: "italic",
                   mt: "2px",
-                  ml: "4px", // Align slightly inward from left
-                  display: "block", // Forces it to behave like a block element
+                  ml: "4px", 
+                  display: "block",
                 }}
               >
                 enter a valid email

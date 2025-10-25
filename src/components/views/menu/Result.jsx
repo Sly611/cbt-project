@@ -94,7 +94,7 @@ const Result = () => {
                 variant="h6"
                 sx={{ display: "flex", alignItems: "center", gap: 1 }}
               >
-                <SchoolIcon color="primary" /> {testResult.course_title}
+                <SchoolIcon color="primary" /> {getTitleCase(testResult.course_title)}
               </Typography>
 
               <Button
@@ -145,7 +145,7 @@ const Result = () => {
                       <TableCell>
                         <Chip
                           label={`${res.score}`}
-                          color={res.score >= 0.5 * testResult.total_score ? "success" : "error"}
+                          color={res.score > 0.3 * testResult.total_score ? "success" : "error"}
                           variant="outlined"
                         />
                       </TableCell>

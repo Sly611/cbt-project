@@ -47,7 +47,7 @@ const QuestionDetail = () => {
         auth: true,
         method: "DELETE",
         url: "instructor/tests/question/",
-        data: { questionId: question.questions.id },
+        data: { testId: question.questions.id },
       });
       if (response && !response.error) {
         dispatch(

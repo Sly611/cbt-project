@@ -12,7 +12,6 @@ import {
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsRoundedIcon from "@mui/icons-material/NotificationsRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +23,6 @@ export const NavBar = (props) => {
   const [anchorElUser, setAnchorElUser] = useState(null);
   const pageTitle = useSelector((state) => state.title.title);
   const user = useSelector((state) => state.user.user);
-  const { isLoading, sendRequest } = useAuthenticate();
   const { logout } = useLogout();
 
   const handleOpenUserMenu = (event) => {
@@ -80,14 +78,11 @@ export const NavBar = (props) => {
             gap: 1,
           }}
         >
-          {/* <IconButton>
-            <NotificationsRoundedIcon />
-          </IconButton> */}
           <Typography variant="subtitle2">Welcome, {user.email}</Typography>
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar
-                alt={user.first_name}
+                alt={user.first_name.toUpperCase()}
                 src="#"
                 sx={{
                   backgroundColor: "success.main",

@@ -6,9 +6,6 @@ import {
   CardContent,
   Typography,
   Button,
-  Alert,
-  Snackbar,
-  MenuItem,
 } from "@mui/material";
 import theme from "../../../../Theme";
 import useInput from "../../../hooks/useInput";
@@ -85,8 +82,6 @@ const CreatTest = () => {
   const handleCheckbox = (event) => {
     setShow_score_on_submit(event.target.checked);
     const schedule = getScheduledStart();
-    console.log(schedule);
-    console.log(scheduled_startTime);
   };
 
   const discardButtonHandler = () => {
@@ -149,9 +144,7 @@ const CreatTest = () => {
       total_questions: Number(total_questions),
       show_score_on_submit,
     };
-    console.log(data);
     sendRequest(data);
-    console.log(data);
     course_titleReset();
     descriptionReset();
     setScheduled_startDate("");

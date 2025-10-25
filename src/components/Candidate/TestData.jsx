@@ -1,19 +1,15 @@
-import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+
 import {
   Container,
   Box,
   Grid,
   Typography,
   Button,
-  Card,
-  CardContent,
   Divider,
   List,
   ListItem,
   ListItemText,
   ListItemIcon,
-  ListItemAvatar,
   Avatar,
 } from "@mui/material";
 import {
@@ -28,7 +24,6 @@ import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 import AvTimerRoundedIcon from "@mui/icons-material/AvTimerRounded";
 import StarsRoundedIcon from "@mui/icons-material/StarsRounded";
 import FiberManualRecordRoundedIcon from "@mui/icons-material/FiberManualRecordRounded";
-import { useNavigate } from "react-router-dom";
 
 const TestData = (props) => {
   const startTest = () => {
