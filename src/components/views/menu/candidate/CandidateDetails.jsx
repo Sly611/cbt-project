@@ -33,13 +33,17 @@ const CandidateDetails = () => {
   };
 
   const getApr = async (tests) => {
-    const testPromises = tests.map((t) => getTest(t.id));
-    const results = await Promise.all(testPromises);
+    let passed_tests = 0;
 
-    const passed_tests = results.filter((test, i) => {
+    for (let i = 0; i < tests.length; i++) {
+      const test = await getTest(tests[i].id); // ✅ await here
+      if (!test || !test.total_score) continue;
+
       const score_percent = (tests[i].score / test.total_score) * 100;
-      return score_percent > 0;
-    }).length;
+      if (score_percent > 0) {
+        passed_tests++;
+      }
+    }
 
     return (passed_tests / tests.length) * 100;
   };
