@@ -27,22 +27,19 @@ const CandidateDetails = () => {
     const response = await request({
       auth: true,
       method: "GET",
-      url: `insrtuctor/tests/detail/${test_id}`,
+      url: `/instructor/test/detail/${test_id}/`, // ✅ fixed
     });
     return response;
   };
 
-  const getApr = (tests) => {
-    console.log(tests);
-    let passed_tests = 0;
+  const getApr = async (tests) => {
+    const testPromises = tests.map((t) => getTest(t.id));
+    const results = await Promise.all(testPromises);
 
-    for (var i = 0; i < tests.length; i++) {
-      var test = getTest(tests[i].id);
-      var score_percent = (tests[i].score / test.total_score) * 100;
-      if (score_percent > 0) {
-        passed_tests++;
-      }
-    }
+    const passed_tests = results.filter((test, i) => {
+      const score_percent = (tests[i].score / test.total_score) * 100;
+      return score_percent > 0;
+    }).length;
 
     return (passed_tests / tests.length) * 100;
   };
