@@ -191,7 +191,7 @@ const CandidateTest = () => {
             setModal({
               open: true,
               title: "Test Submitted!",
-              message: `Your score: ${data.score}/${testData.test.total_score}`,
+              message: `Your score: ${Math.floor(data.score)}/${testData.test.total_score}`,
               logo: (
                 <TaskAltRoundedIcon
                   color="success"

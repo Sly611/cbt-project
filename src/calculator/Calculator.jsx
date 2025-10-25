@@ -47,7 +47,7 @@ export default function Calculator() {
 
     const specials = ["sin", "cos", "tan", "log", "√", "xʸ", "()"];
     if (specials.includes(button.label)) {
-      if (button.label === "()") {
+      if (button.label === "( )") {
         setValue((prev) => prev + parenthesisHandler());
       } else if (button.label === "√") {
         setValue((prev) => prev + "sqrt(");
