@@ -110,7 +110,7 @@ const CandidateDetails = () => {
 
           <Box sx={{ textAlign: "center" }}>
             <Typography variant="subtitle2" color="text.secondary">
-              Total Tests Taken
+              Pass rate
             </Typography>
             <Typography variant="h4" sx={{ fontWeight: 700 }}>
               {getApr()}%
