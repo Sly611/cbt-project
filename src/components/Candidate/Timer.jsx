@@ -39,7 +39,7 @@ const Timer = ({ duration, onTimeUp, socket }) => {
         );
         console.log("time_updated");
       }
-    }, 10000);
+    }, 3000);
     return () => clearInterval(updateInterval);
   }, [duration, socket]);
 
