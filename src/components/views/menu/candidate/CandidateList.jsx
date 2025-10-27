@@ -55,7 +55,7 @@ const CandidateList = () => {
     { field: "regNum", headerName: "Reg Num", width: 150, sortable: false },
     {
       field: "exams",
-      headerName: "Exams taken",
+      headerName: "Registered Exams",
       width: 100,
       sortable: false,
     },
