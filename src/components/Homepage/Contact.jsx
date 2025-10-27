@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import MailOutlineRoundedIcon from "@mui/icons-material/MailOutlineRounded";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import XIcon from "@mui/icons-material/X"; // Or use TwitterIcon if you prefer
+import XIcon from "@mui/icons-material/X";
 
 export default function Contact() {
   return (
@@ -36,7 +36,6 @@ export default function Contact() {
           </Typography>
         </Box>
 
-        {/* Contact Info Section */}
         <Paper
           elevation={3}
           sx={{
@@ -68,7 +67,6 @@ export default function Contact() {
               <Typography variant="subtitle1" fontWeight={600}>
                 Email
               </Typography>
-              {/* 👉 Replace this with your real email later */}
               <Link
                 href="caleb.usha.yt@gmail.com"
                 underline="hover"
@@ -94,7 +92,6 @@ export default function Contact() {
               <Typography variant="subtitle1" fontWeight={600}>
                 GitHub
               </Typography>
-              {/* 👉 Replace this with your GitHub URL */}
               <Link
                 href="https://github.com/Sly611"
                 underline="hover"
@@ -120,7 +117,6 @@ export default function Contact() {
               <Typography variant="subtitle1" fontWeight={600}>
                 X (Twitter)
               </Typography>
-              {/* 👉 Replace this with your X (Twitter) link */}
               <Link
                 href="https://x.com/zobo_sly"
                 underline="hover"
@@ -135,7 +131,6 @@ export default function Contact() {
 
         <Divider sx={{ mb: 6 }} />
 
-        {/* Contact Form Section (Optional Placeholder) */}
         <Paper
           elevation={2}
           sx={{

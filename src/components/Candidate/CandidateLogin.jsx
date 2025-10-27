@@ -5,9 +5,6 @@ import {
   CardContent,
   TextField,
   Typography,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
   IconButton,
   InputAdornment,
   Box,
@@ -78,7 +75,6 @@ const CandidateLogin = () => {
       const response = await request({
         method: "GET",
         url: `/dtg/tests/?instructor=${params.instructor}`,
-        // params: { instructor: params.instructor },
         auth: false,
       });
       if (response) {
@@ -98,7 +94,7 @@ const CandidateLogin = () => {
         height: "100vh",
         backgroundImage: `url(${bg})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover", // or 'contain' / 'auto'
+        backgroundSize: "cover",
         backgroundPosition: "center",      }}
     >
       <Card

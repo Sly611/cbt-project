@@ -89,7 +89,6 @@ const TestList = () => {
     }
     handleMenuClose();
 
-    // Optionally refresh tests
   };
 
   const handleStopTest = async () => {
@@ -120,7 +119,6 @@ const TestList = () => {
       );
     }
     handleMenuClose();
-    // Optionally refresh tests
   };
 
   const handleDeleteTest = async () => {
@@ -148,7 +146,6 @@ const TestList = () => {
         return;
       }
 
-      // explicit error object returned
       dispatch(
         alertSliceActions.setAlert({
           open: true,
@@ -159,7 +156,6 @@ const TestList = () => {
       );
       handleMenuClose();
     } catch (err) {
-      // network / unexpected error
       dispatch(
         alertSliceActions.setAlert({
           open: true,
@@ -169,7 +165,6 @@ const TestList = () => {
         })
       );
       handleMenuClose();
-      // Optionally refresh tests
     }
   };
 
@@ -212,7 +207,6 @@ const TestList = () => {
     {
       field: "score",
       headerName: "Score",
-      // width: 88,
       sortable: false,
     },
   ];
@@ -271,10 +265,6 @@ const TestList = () => {
             anchorEl={menuAnchor}
             open={Boolean(menuAnchor)}
             onClose={handleMenuClose}
-            // PaperProps={{
-            //   elevation: 3,
-            //   sx: { borderRadius: 2, minWidth: 150 },
-            // }}
           >
             <MenuItem onClick={handleStartTest}>
               <ListItemIcon>
@@ -329,10 +319,9 @@ const TestList = () => {
             columns={columns}
             checkboxSelection
             onRowSelectionModelChange={(newSelectionModel) => {
-              // newSelectionModel = array of selected row IDs
               const ids = Array.from(newSelectionModel.ids);
               const selectedData = rows.filter((row) => ids.includes(row.id));
-              setSelectedRows(selectedData.map((data) => data.id)); // store the selected row objects
+              setSelectedRows(selectedData.map((data) => data.id));
             }}
             sx={{
               border: "none",

@@ -21,13 +21,6 @@ export const formatDateTime = (dateTime) => {
     })
     .replace(",", "");
 
-  // var year = date.getFullYear()
-  // var month = date.toLocaleString('default', {month: 'short'})
-  // var day = date.getDate()
-  // var hours = date.getHours()
-  // var munites = date.getMinutes().toString().padStart(2, '0')
-  // var ampm = hours
-
   return formmatedDate;
 };
 

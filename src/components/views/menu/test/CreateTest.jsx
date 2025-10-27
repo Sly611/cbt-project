@@ -183,9 +183,8 @@ const CreatTest = () => {
                   variant="body2"
                   fontWeight={600}
                   sx={{
-                    color: theme.palette.text.secondary, // grayish
-                    // fontWeight: 500,
-                    mb: 0.75, // small space below label
+                    color: theme.palette.text.secondary,
+                    mb: 0.75,
                     ml: 0.5,
                   }}
                 >
@@ -198,9 +197,7 @@ const CreatTest = () => {
                   fullWidth
                   size="small"
                   sx={{
-                    // backgroundColor: theme.palette.grey[200],
                     borderRadius: 2,
-                    // "& fieldset": { border: "none" },
                     "& .MuiInputBase-root": {
                       boxShadow: "none",
                       height: "3rem",
@@ -214,8 +211,8 @@ const CreatTest = () => {
                   variant="body2"
                   fontWeight={600}
                   sx={{
-                    color: theme.palette.text.secondary, // grayish
-                    mb: 0.75, // small space below label
+                    color: theme.palette.text.secondary,
+                    mb: 0.75,
                     ml: 0.5,
                   }}
                 >
@@ -245,8 +242,8 @@ const CreatTest = () => {
                   variant="body2"
                   fontWeight={600}
                   sx={{
-                    color: theme.palette.text.secondary, // grayish
-                    mb: 0.75, // small space below label
+                    color: theme.palette.text.secondary,
+                    mb: 0.75,
                     ml: 0.5,
                   }}
                 >
@@ -272,8 +269,8 @@ const CreatTest = () => {
                     variant="body2"
                     fontWeight={600}
                     sx={{
-                      color: theme.palette.text.secondary, // grayish
-                      mb: 0.75, // small space below label
+                      color: theme.palette.text.secondary,
+                      mb: 0.75,
                       ml: 0.5,
                     }}
                   >
@@ -302,8 +299,8 @@ const CreatTest = () => {
                     variant="body2"
                     fontWeight={600}
                     sx={{
-                      color: theme.palette.text.secondary, // grayish
-                      mb: 0.75, // small space below label
+                      color: theme.palette.text.secondary,
+                      mb: 0.75,
                       ml: 0.5,
                     }}
                   >
@@ -334,8 +331,8 @@ const CreatTest = () => {
                     variant="body2"
                     fontWeight={600}
                     sx={{
-                      color: theme.palette.text.secondary, // grayish
-                      mb: 0.75, // small space below label
+                      color: theme.palette.text.secondary,
+                      mb: 0.75,
                       ml: 0.5,
                     }}
                   >
@@ -360,8 +357,8 @@ const CreatTest = () => {
                     variant="body2"
                     fontWeight={600}
                     sx={{
-                      color: theme.palette.text.secondary, // grayish
-                      mb: 0.75, // small space below label
+                      color: theme.palette.text.secondary,
+                      mb: 0.75,
                       ml: 0.5,
                     }}
                   >

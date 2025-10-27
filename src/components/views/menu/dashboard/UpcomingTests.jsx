@@ -16,12 +16,6 @@ import SchoolRoundedIcon from "@mui/icons-material/SchoolRounded";
 import HourglassTopRoundedIcon from "@mui/icons-material/HourglassTopRounded";
 import EventRoundedIcon from "@mui/icons-material/EventRounded";
 
-import {
-  getTitleCase,
-  formatDateTime,
-  formatDuration,
-} from "../helpers/Format";
-
 const UpcomingTestsTable = (props) => {
   const upcoming = props.testData.filter((test) => test.status === "scheduled");
 
@@ -62,8 +56,6 @@ const UpcomingTestsTable = (props) => {
                   <strong>Schedule</strong>
                 </Box>
               </TableCell>
-              {/* <TableCell align="center"><strong>Candidates</strong></TableCell>
-              <TableCell align="center"><strong>Action</strong></TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>

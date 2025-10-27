@@ -15,13 +15,10 @@ const style = {
   borderRadius: 3,
   boxShadow: 24,
   p: 3,
-  //   justifyContent: "center",
 };
 
 export default function CustomModal(props) {
-  //   const [open, setOpen] = React.useState(false);
-  //   const handleOpen = () => setOpen(true);
-  //   const handleClose = () => setOpen(false);
+
 
   return (
     <div>

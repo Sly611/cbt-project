@@ -2,7 +2,6 @@ import { Box, Grid, Typography, Button, IconButton } from "@mui/material";
 import { orange } from "@mui/material/colors";
 import { useState, useEffect, useRef } from "react";
 import BackspaceIcon from "@mui/icons-material/Backspace";
-import ClearIcon from "@mui/icons-material/Clear";
 import { evaluate } from "mathjs";
 
 const buttons = [
@@ -178,11 +177,7 @@ export default function Calculator() {
             <BackspaceIcon fontSize="small" />
           </IconButton>
         </Grid>
-        {/* <Grid item>
-          <IconButton onClick={clearScreenHandler} size="small" sx={{ color: "#fff" }}>
-            <ClearIcon fontSize="small" />
-          </IconButton>
-        </Grid> */}
+
       </Grid>
 
       {/* Special Buttons */}

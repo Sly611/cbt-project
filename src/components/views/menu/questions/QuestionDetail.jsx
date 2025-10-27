@@ -93,7 +93,6 @@ const QuestionDetail = () => {
             open={open}
             anchorEl={anchoreEl}
             onClose={handleMenuClose}
-            // slotProps={{ paper: { style: { width: "4rem" } } }}
           >
             <MenuItem onClick={() => navigate("/dashboard/questions/new")}>
               <ListItemIcon>

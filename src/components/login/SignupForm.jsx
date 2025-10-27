@@ -4,22 +4,18 @@ import {
   Card,
   CardActions,
   CardContent,
-  Container,
   TextField,
   Typography,
   IconButton,
   InputAdornment,
   CircularProgress,
 } from "@mui/material";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import AccountBoxRoundedIcon from "@mui/icons-material/AccountBoxRounded";
+import { Link } from "react-router-dom";
 import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
-import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import { useState } from "react";
 import useInput from "../hooks/useInput";
 import useAuthenticate from "../hooks/useAuthenticate";
-import useApi from "../hooks/useApi";
 
 const SignupForm = () => {
   const {
@@ -155,8 +151,8 @@ const SignupForm = () => {
                 sx={{
                   fontStyle: "italic",
                   mt: "2px",
-                  ml: "4px", // Align slightly inward from left
-                  display: "block", // Forces it to behave like a block element
+                  ml: "4px",
+                  display: "block",
                 }}
               >
                 field cannot be empty
@@ -182,8 +178,8 @@ const SignupForm = () => {
                 sx={{
                   fontStyle: "italic",
                   mt: "2px",
-                  ml: "4px", // Align slightly inward from left
-                  display: "block", // Forces it to behave like a block element
+                  ml: "4px",
+                  display: "block",
                 }}
               >
                 field cannot be empty
@@ -209,8 +205,8 @@ const SignupForm = () => {
                 sx={{
                   fontStyle: "italic",
                   mt: "2px",
-                  ml: "4px", // Align slightly inward from left
-                  display: "block", // Forces it to behave like a block element
+                  ml: "4px",
+                  display: "block",
                 }}
               >
                 field cannot be empty
@@ -280,8 +276,8 @@ const SignupForm = () => {
                 sx={{
                   fontStyle: "italic",
                   mt: "2px",
-                  ml: "4px", // Align slightly inward from left
-                  display: "block", // Forces it to behave like a block element
+                  ml: "4px",
+                  display: "block",
                 }}
               >
                 password must be more that 6 characters
@@ -324,8 +320,8 @@ const SignupForm = () => {
                 sx={{
                   fontStyle: "italic",
                   mt: "2px",
-                  ml: "4px", // Align slightly inward from left
-                  display: "block", // Forces it to behave like a block element
+                  ml: "4px",
+                  display: "block",
                 }}
               >
                 password miss-match

@@ -14,12 +14,10 @@ const Timer = ({ duration, onTimeUp, socket }) => {
   const [timeLeft, setTimeLeft] = useState(duration);
   const timeLeftRef = useRef(timeLeft);
 
-  // Keep ref updated
   useEffect(() => {
     timeLeftRef.current = timeLeft;
   }, [timeLeft]);
 
-  // 1-second countdown
   useEffect(() => {
     if (timeLeft <= 0) {
       if (onTimeUp) onTimeUp();
@@ -29,7 +27,6 @@ const Timer = ({ duration, onTimeUp, socket }) => {
     return () => clearInterval(timer);
   }, [timeLeft, onTimeUp]);
 
-  // 10-second backend update (interval is stable)
   useEffect(() => {
     const updateInterval = setInterval(() => {
       const elapsed = duration - timeLeftRef.current;
@@ -37,14 +34,14 @@ const Timer = ({ duration, onTimeUp, socket }) => {
         socket.current.send(
           JSON.stringify({
             action: "update_time",
-            elapsed_time: elapsed, // seconds
+            elapsed_time: elapsed,
           })
         );
         console.log("time_updated");
       }
     }, 10000);
     return () => clearInterval(updateInterval);
-  }, [duration, socket]); // <-- only run once
+  }, [duration, socket]);
 
   return (
     <Box sx={{ width: "5.5rem", height: "5.5rem" }}>
@@ -54,13 +51,11 @@ const Timer = ({ duration, onTimeUp, socket }) => {
         thickness={11}
         styles={buildStyles({
           textColor: "#000",
-          // fontSize: "1.7rem",
           pathColor: timeLeft < 60 ? "red" : "#1976d2",
           trailColor: "#ddd",
           fontWeight: "bold",
         })}
       />
-      {/* <Typography variant="h4" color="textSecondary">{formatTime(timeLeft)}</Typography> */}
     </Box>
   );
 };

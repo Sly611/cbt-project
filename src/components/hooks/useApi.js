@@ -1,4 +1,3 @@
-// hooks/useApi.js
 import { useState } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
@@ -17,7 +16,7 @@ const useApi = () => {
       const { exp } = jwtDecode(token);
       return Date.now() >= exp * 1000;
     } catch (err) {
-      return true; // invalid token → treat as expired
+      return true;
     }
   };
 
@@ -65,9 +64,6 @@ const useApi = () => {
           method: config.method || "GET",
           data: config.data || null,
           url: config.url,
-          // headers: {
-          //   Authorization: `Bearer ${token}`,
-          // },
         });
         if (response.status === 200) {
           return response.data;

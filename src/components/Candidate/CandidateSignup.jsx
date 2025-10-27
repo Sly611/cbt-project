@@ -1,5 +1,4 @@
 import {
-  Container,
   Box,
   Typography,
   FormControl,
@@ -40,7 +39,6 @@ const CandidateSignup = () => {
 
   const {
     value: reg_number,
-    isInvalid: reg_numberIsInvalid,
     valueChangeHandler: reg_numberChangeHandler,
     resetInput: reg_numberReset,
   } = useInput((value) => value);
@@ -306,8 +304,8 @@ const CandidateSignup = () => {
               sx={{
                 fontStyle: "italic",
                 mt: "2px",
-                ml: "4px", // Align slightly inward from left
-                display: "block", // Forces it to behave like a block element
+                ml: "4px",
+                display: "block",
               }}
             >
               password must be &gtn 6 char
@@ -350,8 +348,8 @@ const CandidateSignup = () => {
               sx={{
                 fontStyle: "italic",
                 mt: "2px",
-                ml: "4px", // Align slightly inward from left
-                display: "block", // Forces it to behave like a block element
+                ml: "4px",
+                display: "block",
               }}
             >
               password miss-match

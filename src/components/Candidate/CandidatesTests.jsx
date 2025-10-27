@@ -47,7 +47,7 @@ const CandidateTest = () => {
         if (data.status === "ok") {
           setProgress((prevProgress) => {
             const questionId = questions[currentQuestionIndex]?.id;
-            if (!questionId) return prevProgress; // Defensive: skip if no question
+            if (!questionId) return prevProgress;
 
             const idx = prevProgress.findIndex(
               (p) => p.question === questionId
@@ -132,7 +132,6 @@ const CandidateTest = () => {
       }
       socketRef.current.onmessage = (event) => {
         const data = JSON.parse(event.data);
-        // console.log(data);
         if (data.status === "error") {
           setModal({
             open: true,
@@ -191,7 +190,7 @@ const CandidateTest = () => {
             setModal({
               open: true,
               title: "Test Submitted!",
-              message: `Your score: ${Math.floor(data.score)}/${testData.test.total_score}`,
+              message: `Score: ${Math.ceil(data.score)}/${testData.test.total_score}`,
               logo: (
                 <TaskAltRoundedIcon
                   color="success"
@@ -241,7 +240,6 @@ const CandidateTest = () => {
     );
   };
   const handleTimeUp = () => {
-    // Auto-submit the test on time up and show modal with score (if returned)
     const ws = socketRef.current;
     if (ws?.readyState === WebSocket.OPEN) {
       ws.send(
@@ -307,7 +305,6 @@ const CandidateTest = () => {
 
       ws.addEventListener("message", onMessage);
     } else {
-      // fallback: cannot reach server — inform user and navigate back
       setModal({
         open: true,
         title: "Time's up",

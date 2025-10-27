@@ -22,10 +22,10 @@ const Hero = () => {
         fontWeight={700}
         sx={{
           fontSize: {
-            xs: "2rem", // small phones
-            sm: "2.5rem", // larger phones
-            md: "3.2rem", // tablets
-            lg: "3.8rem", // desktops
+            xs: "2rem",
+            sm: "2.5rem",
+            md: "3.2rem",
+            lg: "3.8rem",
           },
           lineHeight: 1.2,
         }}

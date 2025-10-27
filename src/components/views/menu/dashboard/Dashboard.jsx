@@ -2,7 +2,6 @@ import { Typography, Grid, Box, Paper } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { pageTitleActions } from "../../../../store";
-import CircleRoundedIcon from "@mui/icons-material/CircleRounded";
 import StatsCards from "./StatsCards";
 import OngoingTestsTable from "./OngoingTests";
 import UpcomingTestsTable from "./UpcomingTests";

@@ -7,7 +7,6 @@ import {
   ListItem,
   ListItemText,
   List,
-  // Link,
   Button,
 } from "@mui/material";
 import { useNavigate, Link } from "react-router-dom";
@@ -16,7 +15,6 @@ import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
 import SchoolOutlinedIcon from "@mui/icons-material/SchoolOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
-import theme from "../../Theme";
 
 const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: "none",
@@ -118,14 +116,6 @@ const NavBar = () => {
           <StyledLink
             key={link.label}
             to={link.href}
-            // sx={{
-            //   textDecoration: "none",
-            //   color: "#1976d2",
-            //   fontWeight: 500,
-            //   fontSize: "1rem",
-            //   transition: "0.3s",
-            //   "&:hover": { color: "primary.main" },
-            // }}
           >
             {link.label}
           </StyledLink>
@@ -168,7 +158,7 @@ const NavBar = () => {
           }}
           slotProps={{
             root: {
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             },
           }}
         >
@@ -179,7 +169,6 @@ const NavBar = () => {
                   button
                   key={link.label}
                   component="a"
-                  // href={link.href}
                   onClick={() => {
                     navigate(link.href);
                     handleDrawerClose();

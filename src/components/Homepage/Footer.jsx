@@ -26,7 +26,6 @@ export default function Footer() {
           rowGap: 2,
         }}
       >
-        {/* Left Section */}
         <Grid
           item
           xs={12}
@@ -73,7 +72,6 @@ export default function Footer() {
           </Box>
         </Grid>
 
-        {/* Right Section (Socials) */}
         <Grid
           item
           xs={12}

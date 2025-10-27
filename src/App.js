@@ -23,7 +23,6 @@ import CandidateSignup from "./components/Candidate/CandidateSignup";
 import CandidateLogin from "./components/Candidate/CandidateLogin";
 import Index from "./components/Candidate/Index";
 import CandidateTest from "./components/Candidate/CandidatesTests";
-import Score from "./components/Candidate/Score";
 import About from "./components/Homepage/About";
 import Hero from "./components/Homepage/Hero";
 import Documentation from "./components/Homepage/Documentation";
@@ -66,14 +65,13 @@ const routes = createBrowserRouter([
         path: "dashboard",
         element: <Main />,
         children: [
-          { index: true, element: <Dashboard /> }, // dashboard main page
+          { index: true, element: <Dashboard /> },
           {
             path: "test",
             element: <Tests />,
             children: [
               { index: true, element: <TestList /> },
               { path: "new", element: <CreatTest /> },
-              // { path: ":test_id", element: <TestDetail /> },
             ],
           },
           {
@@ -106,19 +104,10 @@ const routes = createBrowserRouter([
           {
             path: ":test_id",
             element: <CandidateTest />,
-            children: [{ path: "score", element: <Score /> }],
           },
           { path: "register", element: <CandidateSignup /> },
         ],
       },
-      // {
-      //   path: "candidate",
-      //   element: <Index />,
-      //   children: [
-      //     { index: true, element: <CandidateTests /> },
-      //     { path: "login", element: <CandidateLogin /> },
-      //   ],
-      // },
     ],
   },
 ]);

@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { userSliceActions } from "../../store";
 
 axios.defaults.baseURL = "https://cbt-api-version0-1.onrender.com/api/";
-// axios.defaults.withCredentials = true;
 
 const useAuthenticate = () => {
   const dispatch = useDispatch();

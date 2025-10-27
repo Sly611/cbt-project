@@ -23,8 +23,7 @@ export const DateField = (props) => {
           slotProps={{
             textField: {
               sx: {
-                // backgroundColor: theme.palette.grey[200], // matches MUI theme inputs
-                borderRadius: 2, // optional rounded corners
+                borderRadius: 2,
                 "& .MuiInputBase-root": {
                   boxShadow: "none",
                   height: "2.3rem",
@@ -64,8 +63,7 @@ export const TimeField = (props) => {
           slotProps={{
             textField: {
               sx: {
-                // backgroundColor: theme.palette.grey[200], // matches MUI theme inputs
-                borderRadius: 2, // optional rounded corners
+                borderRadius: 2,
               },
             },
           }}

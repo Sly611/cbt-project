@@ -2,7 +2,6 @@ import {
   Container,
   Box,
   Typography,
-  Grid,
   Divider,
   Radio,
   RadioGroup,
@@ -22,7 +21,6 @@ import ProgressBar from "./ProgressBar";
 import { IconButton, Popover } from "@mui/material";
 import { useState } from "react";
 import Calculator from "../../calculator/Calculator";
-
 
 function parseDuration(durationStr) {
   // durationStr format: "HH:MM:SS"
@@ -50,7 +48,6 @@ const TestQuestions = (props) => {
       ? selectedProgress.choice.id
       : null;
   const answered_questions = props.progress.length;
-  // const prevChoice = props.progress[props.currentQuestion].choice.id
 
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -114,8 +111,6 @@ const TestQuestions = (props) => {
             onClick={handleCalculatorOpen}
             sx={{
               bgcolor: "aliceblue",
-              //  color: "info",
-              // "&:hover": { bgcolor: "primary.dark" },
             }}
           >
             <CalculateOutlinedIcon fontSize="large" color="info" />

@@ -1,4 +1,4 @@
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { CircularProgressbar } from "react-circular-progressbar";
 import { Box, Typography } from "@mui/material"
 import "react-circular-progressbar/dist/styles.css";
 

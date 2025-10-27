@@ -23,13 +23,11 @@ const OngoingTestsTable = () => {
   const wsRef = useRef(null);
 
   useEffect(() => {
-    // Connect to your Django Channels WebSocket endpoint
     wsRef.current = new WebSocket(
       `wss://cbt-api-version0-1.onrender.com/ws/ongoing-tests/?token=${token}`
     );
 
     wsRef.current.onopen = () => {
-      // Optionally, request initial data
       wsRef.current.send(JSON.stringify({ action: "get_ongoing_tests" }));
     };
 

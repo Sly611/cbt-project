@@ -16,20 +16,13 @@ import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import useInput from "../hooks/useInput";
 import useAuthenticate from "../hooks/useAuthenticate";
-import useApi from "../hooks/useApi";
-import { userSliceActions } from "../../store";
-import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
   const [showpassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
   const { isLoading, error, sendRequest } = useAuthenticate();
-  const { request } = useApi();
-  const dispatch = useDispatch();
+
 
   const {
     value: email,
@@ -147,7 +140,6 @@ const LoginForm = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "stretch",
-            // p: 1,
             gap: 1,
             mb: 2,
           }}

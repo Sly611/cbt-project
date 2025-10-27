@@ -275,14 +275,7 @@ const CreateQuestion = () => {
               >
                 Excel Sample
               </Button>
-              {/* <Button
-                variant="outlined"
-                startIcon={<DownloadRoundedIcon />}
-                size="small"
-                onClick={() => handleDownloadSample("docx")}
-              >
-                Docx Sample
-              </Button> */}
+
             </Box>
           </Paper>
 

@@ -37,7 +37,7 @@ const Result = () => {
     fetchResults();
   }, []);
 
-  // ✅ Convert test results to CSV and trigger download
+  // Convert test results to CSV and trigger download
   const handleExport = (testResult) => {
     const headers = ["First Name", "Last Name", "Reg No", "Email", "Score"];
     const rows = testResult.result.map((res) => [
@@ -144,8 +144,8 @@ const Result = () => {
                       <TableCell>{res.student?.email || "N/A"}</TableCell>
                       <TableCell>
                         <Chip
-                          label={`${res.score}`}
-                          color={res.score > 0.3 * testResult.total_score ? "success" : "error"}
+                          label={`${Math.ceil(res.score)}`}
+                          color={res.score > (0.3 * testResult.total_score) ? "success" : "error"}
                           variant="outlined"
                         />
                       </TableCell>

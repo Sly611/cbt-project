@@ -15,7 +15,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import useAuthenticate from "../../hooks/useAuthenticate";
 import useLogout from "../../hooks/useLogout";
 
 export const NavBar = (props) => {

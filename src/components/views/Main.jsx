@@ -76,7 +76,7 @@ function Main(props) {
           }}
           slotProps={{
             root: {
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true,
             },
           }}
         >
@@ -133,12 +133,12 @@ function Main(props) {
                 fontWeight: 500,
                 bgcolor:
                   alert.severity === "success"
-                    ? "rgba(46, 125, 50, 0.1)" // soft green
+                    ? "rgba(46, 125, 50, 0.1)"
                     : alert.severity === "error"
-                    ? "rgba(211, 47, 47, 0.1)" // soft red
+                    ? "rgba(211, 47, 47, 0.1)"
                     : alert.severity === "warning"
-                    ? "rgba(237, 108, 2, 0.1)" // soft orange
-                    : "rgba(25, 118, 210, 0.1)", // soft blue for info
+                    ? "rgba(237, 108, 2, 0.1)"
+                    : "rgba(25, 118, 210, 0.1)",
                 color:
                   alert.severity === "success"
                     ? "success.main"

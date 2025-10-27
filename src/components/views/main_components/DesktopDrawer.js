@@ -10,17 +10,13 @@ import {
   Typography,
 } from "@mui/material";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import AddTaskRoundedIcon from "@mui/icons-material/AddTaskRounded";
 import QuizRoundedIcon from "@mui/icons-material/QuizRounded";
 import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import GradingRoundedIcon from "@mui/icons-material/GradingRounded";
 import ManageAccountsRoundedIcon from "@mui/icons-material/ManageAccountsRounded";
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import ContactSupportRoundedIcon from "@mui/icons-material/ContactSupportRounded";
 import CloudCircleRoundedIcon from "@mui/icons-material/CloudCircleRounded";
 import PlaylistAddCircleRoundedIcon from "@mui/icons-material/PlaylistAddCircleRounded";
-import PlaylistAddCheckCircleRoundedIcon from "@mui/icons-material/PlaylistAddCheckCircleRounded";
-import LibraryBooksRoundedIcon from "@mui/icons-material/LibraryBooksRounded";
 
 import { NavLink } from "react-router-dom";
 import { grey } from "@mui/material/colors";
@@ -60,11 +56,6 @@ const settingsMenu = [
     label: "Profile",
     path: "/dashboard/profile",
   },
-  // {
-  //   icon: <SettingsRoundedIcon fontSize="small" />,
-  //   label: "Settings",
-  //   path: "/dashboard/settings",
-  // },
   {
     icon: <ContactSupportRoundedIcon fontSize="small" />,
     label: "Help",
@@ -73,7 +64,6 @@ const settingsMenu = [
 ];
 
 export const DrawerMenu = (
-
   <Box>
     <Toolbar sx={{ p: 2 }}>
       <CloudCircleRoundedIcon fontSize="large" />
@@ -114,7 +104,7 @@ export const DrawerMenu = (
                 <ListItemIcon
                   sx={{
                     mr: 1,
-                    minWidth: "auto", // removes the default 56px width
+                    minWidth: "auto",
                     color: "text.primary",
                   }}
                 >
@@ -165,7 +155,7 @@ export const DrawerMenu = (
                 <ListItemIcon
                   sx={{
                     mr: 1,
-                    minWidth: "auto", // removes the default 56px width
+                    minWidth: "auto",
                     color: "text.primary",
                   }}
                 >

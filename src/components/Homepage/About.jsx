@@ -181,7 +181,6 @@ export default function AboutPage() {
           ))}
         </Grid>
 
-        {/* Divider */}
         <Divider sx={{ my: 8 }} />
 
         {/* Footer Section */}

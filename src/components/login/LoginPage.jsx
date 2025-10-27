@@ -1,5 +1,4 @@
 import { Box, Typography } from "@mui/material";
-
 import calender from "../../assets/images/Calendar.png";
 import { Outlet } from "react-router-dom";
 
