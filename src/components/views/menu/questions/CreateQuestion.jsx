@@ -41,7 +41,6 @@ const CreateQuestion = () => {
     const file = event.target.files[0];
     if (!file) return;
     setUploading(true);
-  
 
     const formData = new FormData();
     formData.append("file", file);
@@ -67,13 +66,13 @@ const CreateQuestion = () => {
       }
     } catch (error) {
       dispatch(
-          alertSliceActions.setAlert({
-            open: true,
-            message: "Questions uploaded successfully!",
-            severity: "success",
-            duration: 2500,
-          })
-        );
+        alertSliceActions.setAlert({
+          open: true,
+          message: "Questions uploaded successfully!",
+          severity: "success",
+          duration: 2500,
+        })
+      );
     } finally {
       setUploading(false);
     }
@@ -83,7 +82,7 @@ const CreateQuestion = () => {
   const handleDownloadSample = (type = "excel") => {
     const link = document.createElement("a");
     if (type === "excel") {
-      link.href = "/samples/sample_question_format.xlsx"; // 👉 Place file in public/samples/
+      link.href = "/samples/sample_question_format.xlsx";
       link.download = "sample_question_format.xlsx";
     } else {
       link.href = "/samples/sample_question_format.docx";
@@ -260,8 +259,7 @@ const CreateQuestion = () => {
               color="text.secondary"
               sx={{ mt: 1, fontSize: "0.85rem" }}
             >
-              Upload questions via <b>.csv, .xlsx</b>. (Select a test
-              first)
+              Upload questions via <b>.csv, .xlsx</b>. (Select a test first)
             </Typography>
 
             <Box
@@ -275,7 +273,6 @@ const CreateQuestion = () => {
               >
                 Excel Sample
               </Button>
-
             </Box>
           </Paper>
 
@@ -311,7 +308,7 @@ const CreateQuestion = () => {
                 alignItems="center"
                 sx={{ mb: 1 }}
               >
-                <Grid item xs={12} sm={9}>
+                <Grid size={{ xs: 12, sm: 9 }}>
                   <TextField
                     value={option.text}
                     onChange={(e) => handleOptionChange(index, e.target.value)}
@@ -323,9 +320,7 @@ const CreateQuestion = () => {
                   />
                 </Grid>
                 <Grid
-                  item
-                  xs={12}
-                  sm={3}
+                  size={{ xs: 12, sm: 3 }}
                   sx={{ display: "flex", alignItems: "center" }}
                 >
                   <Checkbox
