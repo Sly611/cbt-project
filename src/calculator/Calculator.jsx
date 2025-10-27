@@ -44,7 +44,7 @@ export default function Calculator() {
   const buttonClickHandler = (button) => {
     if (value === "") setAnswer("");
 
-    const specials = ["sin", "cos", "tan", "log", "√", "xʸ", "()"];
+    const specials = ["sin", "cos", "tan", "log", "√", "xʸ", "( )"];
     if (specials.includes(button.label)) {
       if (button.label === "( )") {
         setValue((prev) => prev + parenthesisHandler());
