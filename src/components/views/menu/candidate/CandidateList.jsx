@@ -21,7 +21,7 @@ const CandidateList = () => {
   const [rows, setRows] = useState([]);
   const [copied, setCopied] = useState(false);
   const user = useSelector((state) => state.user.user);
-  const link = `https://cbt-project-navy.vercel.app//${user.username}/tests/register`;
+  const link = `https://cbt-project-navy.vercel.app/${user.username}/tests/register`;
   const handleCopy = async () => {
     await navigator.clipboard.writeText(link);
     setCopied(true);
